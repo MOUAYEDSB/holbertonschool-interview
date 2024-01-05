@@ -4,9 +4,9 @@ def canUnlockAll(boxes):
     if not boxes:
         return False
     
-    keys = [0]  # List to keep track of keys
-    visited = [False] * len(boxes)  # List to track visited boxes
-    visited[0] = True  # Mark the first box as visited
+    keys = [0]
+    visited = [False] * len(boxes)
+    visited[0] = True
     
     while keys:
         current_key = keys.pop()
@@ -18,3 +18,18 @@ def canUnlockAll(boxes):
                 keys.append(key)
     
     return all(visited)
+
+
+# Test cases
+test_cases = [
+    [[1], [2], [3], [4], []],
+    [[1, 4, 5], [2], [5, 2], [3], [4, 1], [3, 5]],
+    [[4, 6], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]],
+    [[0]],
+    # Add more test cases here
+]
+
+for i, boxes in enumerate(test_cases):
+    result = canUnlockAll(boxes)
+    print(f"Correct output - case {i + 1}: {result}")
+
