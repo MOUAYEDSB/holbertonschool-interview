@@ -1,35 +1,19 @@
 #!/usr/bin/python3
+"Method that determines if all the boxes can be opened"
+
 
 def canUnlockAll(boxes):
-    if not boxes:
-        return False
-    
-    keys = [0]
-    visited = [False] * len(boxes)
-    visited[0] = True
-    
+    opened_boxes = {0}
+    keys = set(boxes[0])
+
     while keys:
-        current_key = keys.pop()
-        current_box = boxes[current_key]
-        
-        for key in current_box:
-            if 0 <= key < len(boxes) and not visited[key]:
-                visited[key] = True
-                keys.append(key)
-    
-    return all(visited)
+        new_keys = set()
+        for key in keys:
+            if key < len(boxes) and key not in opened_boxes:
+                opened_boxes.add(key)
+                new_keys.update(boxes[key])
+        if not new_keys:
+            break
+        keys = new_keys
 
-
-# Test cases
-test_cases = [
-    [[1], [2], [3], [4], []],
-    [[1, 4, 5], [2], [5, 2], [3], [4, 1], [3, 5]],
-    [[4, 6], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]],
-    [[0]],
-    # Add more test cases here
-]
-
-for i, boxes in enumerate(test_cases):
-    result = canUnlockAll(boxes)
-    print(f"Correct output - case {i + 1}: {result}")
-
+    return len(opened_boxes) == len(boxes)
