@@ -1,86 +1,90 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "sort.h"
 
 /**
  * merge - Merges two subarrays of array[]
  * @array: The array to be sorted
- * @left: Starting index of left subarray
- * @mid: Middle index of the array
- * @right: Ending index of right subarray
+ * @temp: Temporary array to hold sorted elements
+ * @left: Left subarray
+ * @mid: Middle point
+ * @right: Right subarray
  */
-static void merge(int *array, int left, int mid, int right) {
-    int i, j, k;
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
+void merge(int *array, int *temp, size_t left, size_t mid, size_t right)
+{
+	size_t i = left, j = mid, k = left;
 
-    // Create temporary arrays
-    int L[n1], R[n2];
+	printf("Merging...\n[left]: ");
+	print_array(array + left, mid - left);
+	printf("[right]: ");
+	print_array(array + mid, right - mid);
 
-    // Copy data to temporary arrays L[] and R[]
-    for (i = 0; i < n1; i++)
-        L[i] = array[left + i];
-    for (j = 0; j < n2; j++)
-        R[j] = array[mid + 1 + j];
+	while (i < mid && j < right)
+	{
+		if (array[i] <= array[j])
+		{
+			temp[k++] = array[i++];
+		}
+		else
+		{
+			temp[k++] = array[j++];
+		}
+	}
 
-    // Merge the temporary arrays back into array[left..right]
-    i = 0; // Initial index of first subarray
-    j = 0; // Initial index of second subarray
-    k = left; // Initial index of merged subarray
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            array[k] = L[i];
-            i++;
-        } else {
-            array[k] = R[j];
-            j++;
-        }
-        k++;
-    }
+	while (i < mid)
+	{
+		temp[k++] = array[i++];
+	}
 
-    // Copy the remaining elements of L[], if any
-    while (i < n1) {
-        array[k] = L[i];
-        i++;
-        k++;
-    }
+	while (j < right)
+	{
+		temp[k++] = array[j++];
+	}
 
-    // Copy the remaining elements of R[], if any
-    while (j < n2) {
-        array[k] = R[j];
-        j++;
-        k++;
-    }
+	for (i = left; i < right; i++)
+	{
+		array[i] = temp[i];
+	}
+
+	printf("[Done]: ");
+	print_array(array + left, right - left);
 }
-
 
 /**
- * merge_sort - Sorts an array of integers in ascending order using Merge Sort
+ * merge_sort_recursive - Helper function to implement merge sort recursively
  * @array: The array to be sorted
- * @size: Number of elements in the array
+ * @temp: Temporary array to hold sorted elements
+ * @left: Left index
+ * @right: Right index
  */
-void merge_sort(int *array, size_t size) {
-    if (size <= 1)
-        return;
+void merge_sort_recursive(int *array, int *temp, size_t left, size_t right)
+{
+	if (right - left > 1)
+	{
+		size_t mid = left + (right - left) / 2;
 
-    int mid = size / 2;
-    int left_size = mid;
-    int right_size = size - mid;
-
-    // Create temporary arrays for left and right halves
-    int left[left_size], right[right_size];
-
-    // Copy data to temporary arrays
-    for (int i = 0; i < left_size; i++)
-        left[i] = array[i];
-    for (int i = 0; i < right_size; i++)
-        right[i] = array[mid + i];
-
-    // Recursively sort left and right halves
-    merge_sort(left, left_size);
-    merge_sort(right, right_size);
-
-    // Merge the sorted halves
-    merge(array, 0, left_size - 1, size - 1);
+		merge_sort_recursive(array, temp, left, mid);
+		merge_sort_recursive(array, temp, mid, right);
+		merge(array, temp, left, mid, right);
+	}
 }
 
+/**
+ * merge_sort - Sorts an array of integers in ascending order
+ * @array: The array to be sorted
+ * @size: Number of elements in @array
+ */
+void merge_sort(int *array, size_t size)
+{
+	int *temp;
+
+	if (array == NULL || size < 2)
+		return;
+
+	temp = malloc(sizeof(int) * size);
+	if (temp == NULL)
+		return;
+
+	merge_sort_recursive(array, temp, 0, size);
+	free(temp);
+}
