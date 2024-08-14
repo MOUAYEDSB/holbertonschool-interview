@@ -1,0 +1,3 @@
+## Island Perimeter 💻
+# Description: 💬
+- This exercise require to implement a function island_perimeter(grid) that calculates the perimeter of an island represented in a grid. The grid is a list of lists of integers where 0 represents water and 1 represents land. Each cell is a square with a side length of 1, and cells are connected horizontally or vertically. The grid is completely surrounded by water, and there is exactly one island (or none). The island does not contain any lakes (water that is not connected to the grid's surrounding water). The function should return the total perimeter of the island.
