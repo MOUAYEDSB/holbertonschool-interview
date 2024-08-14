@@ -1,0 +1,3 @@
+## Wild Compare 💻
+# Description 💬
+- This exercise involves implementing a function called wildcmp that compares two strings to determine if they can be considered identical. The function must account for the possibility that the second string (s2) may contain the special character *, which can replace any sequence of characters, including an empty string. The goal is to return 1 if the strings can be considered identical and 0 otherwise. This problem tests the ability to work with recursion and handle wildcard characters in string comparison, ensuring that all possible matching cases are covered efficiently.
