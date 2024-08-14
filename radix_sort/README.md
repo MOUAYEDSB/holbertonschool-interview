@@ -1,0 +1,3 @@
+## Radix Sort 💻
+# Description: 💬
+- This exercise involves implementing the Radix Sort algorithm in C, using the Least Significant Digit (LSD) method. The objective is to create a radix_sort function that sorts an array of non-negative integers in ascending order. During the sorting process, the function uses print_array to display the array after each significant digit increment. To assist in the implementation, two auxiliary functions are utilized: getMax, which finds the maximum value in the array, and countSort, which performs counting sort based on a specific digit. The implementation should adhere to the Betty coding style guidelines, ensuring clarity and standardization of the code.
