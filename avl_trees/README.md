@@ -1,0 +1,3 @@
+## AVL Trees 💻
+# Description 💬
+- An AVL tree is a self-balancing binary search tree where the difference in heights between the left and right subtrees of any node is no more than one. The function should validate that the tree maintains both the binary search tree (BST) properties and the height balance property of an AVL tree. The implementation will involve writing helper functions to calculate tree height, verify BST validity, and check the balance condition across all nodes.
