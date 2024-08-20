@@ -1,0 +1,3 @@
+## N Queens
+# Description: 💬
+- The N Queens puzzle is a complex problem where N queens must be placed on an N x N chessboard without threatening each other, showcasing the backtracking method in computer science. Solving it involves a recursive strategy that places queens one by one in valid positions, backtracking when necessary. The problem's difficulty increases with more queens, serving as a test for algorithm efficiency and finding applications in areas like tournament planning and cryptography.
