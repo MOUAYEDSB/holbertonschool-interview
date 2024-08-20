@@ -1,11 +1,8 @@
 #!/usr/bin/python3
-""" Program that solves the N queens problem."""
-
 import sys
 
-
 def is_safe(queen_positions, row, col):
-    """Checks if the position is safe for a new queen"""
+    """Checks if the position is safe for a new queen."""
     for i in range(row):
         if queen_positions[i] == col or \
            queen_positions[i] - i == col - row or \
@@ -13,9 +10,8 @@ def is_safe(queen_positions, row, col):
             return False
     return True
 
-
 def solve_nqueens(size, row, queen_positions):
-    """ Solves the N Queens problem recursively"""
+    """Solves the N Queens problem using backtracking."""
     if row == size:
         print_solution(queen_positions)
         return
@@ -24,14 +20,12 @@ def solve_nqueens(size, row, queen_positions):
             queen_positions[row] = col
             solve_nqueens(size, row + 1, queen_positions)
 
-
 def print_solution(queen_positions):
-    """ Prints one solution from the list of queen positions"""
+    """Prints one solution in the required format."""
     solution = []
     for row, col in enumerate(queen_positions):
         solution.append([row, col])
     print(solution)
-
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
