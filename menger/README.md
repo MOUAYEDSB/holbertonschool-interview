@@ -1,0 +1,2 @@
+## Description: 💬
+- The Menger Sponge is a fractal object that is often used in computer graphics and computational geometry for demonstrations, visual effects, and exploring recursive algorithms. It exemplifies how complex structures can be generated using simple, repeated rules, which is a foundational concept in programming for creating detailed models and simulations.
