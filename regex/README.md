@@ -1,0 +1,3 @@
+## RegEx 💻
+# Description 💬
+- The exercise involves implementing a function in C, regex_match, that checks if a given string matches a specified regular expression pattern. The function must handle two special regex characters: . which matches any single character, and * which matches zero or more occurrences of the preceding character. The goal is to create an algorithm that recursively evaluates all possible matches between the string and the pattern, adhering to specific coding standards.
