@@ -35,7 +35,16 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
             }
         }
 
-        if (memcmp(seen, (int[nb_words]){[0 ... nb_words-1] = 1}, nb_words * sizeof(int)) == 0) {
+        // Check if all words were matched
+        int all_matched = 1;
+        for (int j = 0; j < nb_words; j++) {
+            if (!seen[j]) {
+                all_matched = 0;
+                break;
+            }
+        }
+
+        if (all_matched) {
             indices[count++] = i;
         }
     }
