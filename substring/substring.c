@@ -36,27 +36,27 @@ for (int i = 0; i <= len_s - total_len; i++) {
 	}
 
 	// Check if all words were matched
-	int all_matched = 1;
-	for (int j = 0; j < nb_words; j++) {
-		if (!seen[j]) {
-			all_matched = 0;
-			break;
-		}
-	}
+        int all_matched = 1;
+        for (int j = 0; j < nb_words; j++) {
+            if (!seen[j]) {
+                all_matched = 0;
+                break;
+            }
+        }
 
-	if (all_matched) {
-		indices[count++] = i;
-	}
-}
+        if (all_matched) {
+            indices[count++] = i;
+        }
+    }
 
-if (count == 0) {
-	free(indices);
-	*n = 0;
-	return NULL;
-}
+    if (count == 0) {
+        free(indices);
+        *n = 0;
+        return NULL;
+    }
 
-indices = realloc(indices, count * sizeof(int));
-*n = count;
+    indices = realloc(indices, count * sizeof(int));
+    *n = count;
 
-return indices;
+    return indices;
 }
