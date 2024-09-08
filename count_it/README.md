@@ -1,0 +1,3 @@
+## Count it! 💻
+# Description 💬
+- This exercise involves creating a recursive Python function that interacts with the Reddit API to retrieve and analyze the titles of hot articles from a specified subreddit. The function counts the occurrences of a given list of keywords in these titles, normalizing them to be case-insensitive. The results are then sorted by the frequency of occurrences in descending order, with ties broken alphabetically, and printed out. The solution requires handling API pagination through recursion and managing edge cases such as invalid subreddits or keywords with no matches. The challenge emphasizes the use of recursion rather than iterative loops.
