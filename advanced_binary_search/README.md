@@ -1,0 +1,3 @@
+## Advanced Binary Search
+# Description 💬
+- The exercise involves implementing an advanced binary search algorithm that finds the first occurrence of a value in a sorted array of integers. Unlike the standard binary search, which may return any index where the value is found, this advanced version ensures that the index of the first occurrence is returned. The function must be implemented recursively, and each time the array is split, the current subarray being searched should be printed. This exercise helps to deepen understanding of binary search algorithms and their implementation using recursion.
