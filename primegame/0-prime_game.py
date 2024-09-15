@@ -3,7 +3,15 @@
 
 def isWinner(x, nums):
     """
-    Determines who won the most rounds."""
+    Determines who won the most rounds based on prime counting.
+    
+    Arguments:
+    x -- the number of rounds
+    nums -- list of integers, each representing the upper limit of numbers in a round
+    
+    Returns:
+    Name of the player who won the most rounds ("Maria", "Ben", or None for tie).
+    """
     
     def is_prime(n):
         """Checks if a number is prime."""
