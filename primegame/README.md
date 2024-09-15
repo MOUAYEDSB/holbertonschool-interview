@@ -1,0 +1,3 @@
+# # Prime Game
+# Description 💬
+- This task involves implementing a Python function isWinner(x, nums) to determine the winner of a prime number game played between Maria and Ben. In the game, players take turns choosing prime numbers from a set of consecutive integers, removing the chosen prime and its multiples. Maria always plays first, and the player who cannot make a move loses. The function takes x, the number of rounds, and nums, an array representing the end number of each round. The goal is to determine who won the most rounds, considering both players play optimally.
